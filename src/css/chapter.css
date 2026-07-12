@@ -587,6 +587,12 @@ a {
   pointer-events: none;
 }
 
+.scene-art__detail {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
 .scene-art__sky,
 .scene-art__glow,
 .scene-art__land,
@@ -664,6 +670,59 @@ a {
   opacity: 0.7;
 }
 
+.scene-art--dawn .scene-art__detail {
+  background:
+    radial-gradient(circle at 22% 18%, rgba(255, 255, 255, 0.8) 0 2px, transparent 3px),
+    radial-gradient(circle at 30% 14%, rgba(255, 255, 255, 0.72) 0 1px, transparent 2px),
+    radial-gradient(circle at 76% 22%, rgba(255, 255, 255, 0.55) 0 2px, transparent 3px),
+    radial-gradient(circle at 66% 35%, rgba(255, 255, 255, 0.34) 0 6px, transparent 7px),
+    radial-gradient(circle at 50% 18%, rgba(255, 195, 112, 0.92) 0 8px, transparent 10px);
+  opacity: 0.92;
+}
+
+.scene-art--city .scene-art__detail {
+  background:
+    linear-gradient(180deg, transparent 0 48%, rgba(12, 16, 24, 0.65) 48% 100%),
+    repeating-linear-gradient(90deg, transparent 0 6%, rgba(10, 16, 27, 0.88) 6% 10%, transparent 10% 14%),
+    repeating-linear-gradient(0deg, transparent 0 8%, rgba(255, 255, 255, 0.12) 8% 9%, transparent 9% 17%);
+  opacity: 0.72;
+}
+
+.scene-art--city .scene-art__railcar::before {
+  background: linear-gradient(90deg, #ffd47b, rgba(255, 255, 255, 0.25));
+}
+
+.scene-art--meadow .scene-art__detail {
+  background:
+    radial-gradient(circle at 14% 58%, rgba(255, 255, 255, 0.72) 0 2px, transparent 3px),
+    radial-gradient(circle at 24% 64%, rgba(255, 255, 255, 0.72) 0 2px, transparent 3px),
+    radial-gradient(circle at 36% 60%, rgba(255, 255, 255, 0.72) 0 2px, transparent 3px),
+    radial-gradient(circle at 58% 68%, rgba(255, 255, 255, 0.72) 0 2px, transparent 3px),
+    radial-gradient(circle at 84% 56%, rgba(255, 255, 255, 0.72) 0 2px, transparent 3px),
+    linear-gradient(180deg, transparent 0 58%, rgba(30, 51, 29, 0.18) 58% 100%);
+  opacity: 0.8;
+}
+
+.scene-art--tunnel .scene-art__detail {
+  background:
+    radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.14) 0 10%, transparent 12%),
+    radial-gradient(circle at 80% 50%, rgba(255, 255, 255, 0.14) 0 10%, transparent 12%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.68) 0 15%, transparent 15% 85%, rgba(0, 0, 0, 0.68) 85% 100%),
+    repeating-linear-gradient(90deg, transparent 0 9%, rgba(255, 255, 255, 0.08) 9% 10%, transparent 10% 18%);
+  opacity: 0.78;
+}
+
+.scene-art--night .scene-art__detail {
+  background:
+    radial-gradient(circle at 15% 18%, rgba(255, 255, 255, 0.9) 0 1px, transparent 2px),
+    radial-gradient(circle at 24% 34%, rgba(255, 255, 255, 0.78) 0 1px, transparent 2px),
+    radial-gradient(circle at 40% 16%, rgba(255, 255, 255, 0.82) 0 1px, transparent 2px),
+    radial-gradient(circle at 52% 28%, rgba(255, 255, 255, 0.72) 0 1px, transparent 2px),
+    radial-gradient(circle at 70% 14%, rgba(255, 255, 255, 0.9) 0 1px, transparent 2px),
+    radial-gradient(circle at 84% 30%, rgba(255, 183, 124, 0.76) 0 3px, transparent 5px);
+  opacity: 0.92;
+}
+
 .scene-art--city .scene-art__sky {
   background: linear-gradient(180deg, #7cbfda 0%, #e1c28d 100%);
 }
@@ -730,6 +789,38 @@ a {
 
 .chapter-story__rail-title {
   color: color-mix(in srgb, var(--paper) 84%, white);
+}
+
+.chapter-story__progress {
+  display: grid;
+  gap: 0.45rem;
+  padding: 0.2rem 0 0.1rem;
+}
+
+.chapter-story__progress-bar {
+  position: relative;
+  display: block;
+  height: 0.8rem;
+  border: 3px solid #0b0b0b;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.04);
+}
+
+.chapter-story__progress-bar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: var(--story-progress, 0.2);
+  background: linear-gradient(90deg, #ffdb7f, #f5a35e 55%, #8fd1d6 100%);
+}
+
+.chapter-story__progress-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(246, 239, 228, 0.58);
 }
 
 .chapter-story__rail,

@@ -8,6 +8,7 @@ export const CHAPTER = {
       number: '01',
       label: 'First light',
       title: 'The platform held its breath.',
+      art: 'dawn',
       copy: [
         'I reached the station while the sky was still the color of cold metal. The lamps above the platform made small halos in the mist, and the train waited with its windows dark and patient.',
         'No one seemed in a hurry. A cleaner folded a cloth into a pocket. A ticket machine hummed to itself. I stepped into the carriage and let the doors close behind me like a held note.',
@@ -26,6 +27,7 @@ export const CHAPTER = {
       number: '02',
       label: 'Front carriage',
       title: 'The first windows showed the city waking up.',
+      art: 'city',
       copy: [
         'The people nearest the doors were folded into their own routines: coffee, headphones, a page of notes, a thumb tracing the edge of a phone. Every seat reflected a different version of the morning.',
         'I watched the glass catch the platform lights, then the lights gave way to buildings, then to open space, and the train began to gather its speed with a soft, deliberate rhythm.',
@@ -44,6 +46,7 @@ export const CHAPTER = {
       number: '03',
       label: 'Open country',
       title: 'The hills unlatched the horizon.',
+      art: 'meadow',
       copy: [
         'Fields appeared all at once, arranged in slow layers of green and gold. Water flashed between reeds. Fences skimmed past the carriage windows and turned into lines of motion rather than objects.',
         'Outside, clouds moved in a different direction from the train. Inside, the carriage settled into a steady hush broken only by the shiver of rails and the occasional breath from the vents overhead.',
@@ -62,6 +65,7 @@ export const CHAPTER = {
       number: '04',
       label: 'Between stations',
       title: 'The tunnel made the carriage into a memory.',
+      art: 'tunnel',
       copy: [
         'When the train entered the tunnel, the world disappeared in one clean movement. The windows turned black, the lights inside softened, and every reflection in the glass became more real than the landscape itself.',
         'I could see my own face, then the row of seats behind me, then the strip of ceiling lights receding like a corridor. The darkness lasted long enough to feel intentional, and then the far end of the tunnel returned us to the day.',
@@ -80,6 +84,7 @@ export const CHAPTER = {
       number: '05',
       label: 'Last stop',
       title: 'By evening, the windows were all amber.',
+      art: 'night',
       copy: [
         'The final station appeared almost before I expected it, a small platform with one bench, one sign, and a row of lamps turning on against the dusk. The train slowed with a long, soft exhale.',
         'I stood, found my footing, and stepped down into the cold. The air smelled of wet timber and rain that had not yet arrived. Behind me the carriage doors closed, and the train moved on with the rest of the light still inside it.',

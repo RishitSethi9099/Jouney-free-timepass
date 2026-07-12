@@ -15,6 +15,8 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
 const app = document.querySelector('#app');
 
 function renderSection(section, index) {
+  const artClass = section.art || section.mood;
+
   return `
     <section class="chapter-section chapter-section--${section.mood}" data-chapter-section data-section-index="${index}" style="--section-accent: ${section.accent};">
       <div class="chapter-section__rail">
@@ -27,13 +29,14 @@ function renderSection(section, index) {
         ${section.copy.map((paragraph) => `<p class="chapter-section__paragraph">${paragraph}</p>`).join('')}
       </div>
       <div class="chapter-section__visual" aria-hidden="true">
-        <div class="scene-art scene-art--${section.mood}">
+        <div class="scene-art scene-art--${section.mood} scene-art--${artClass}">
           <div class="scene-art__sky"></div>
           <div class="scene-art__glow"></div>
           <div class="scene-art__land"></div>
           <div class="scene-art__track"></div>
           <div class="scene-art__railcar"></div>
           <div class="scene-art__mist"></div>
+          <div class="scene-art__detail"></div>
         </div>
       </div>
     </section>
@@ -94,6 +97,10 @@ if (app) {
       <article class="chapter-story" id="chapter-story" data-chapter-story>
         <aside class="chapter-story__rail" aria-label="Chapter navigation">
           <span class="chapter-story__rail-title">Story path</span>
+          <div class="chapter-story__progress" aria-hidden="true">
+            <span class="chapter-story__progress-bar" data-story-progress-bar></span>
+            <span class="chapter-story__progress-label" data-story-progress-label>01 / 05</span>
+          </div>
           <ol class="chapter-story__nav" data-chapter-nav>
             ${CHAPTER.sections.map((section) => `<li><button class="chapter-story__nav-button" type="button" data-nav-target="${section.number}"><span>${section.number}</span>${section.label}</button></li>`).join('')}
           </ol>
@@ -112,6 +119,8 @@ if (app) {
   const skipSound = app.querySelector('[data-skip-sound]');
   const toggleAudio = app.querySelector('[data-toggle-audio]');
   const progressLabel = app.querySelector('[data-progress-label]');
+  const storyProgressBar = app.querySelector('[data-story-progress-bar]');
+  const storyProgressLabel = app.querySelector('[data-story-progress-label]');
   const navButtons = Array.from(app.querySelectorAll('[data-nav-target]'));
   const sectionNodes = Array.from(app.querySelectorAll('[data-chapter-section]'));
 
@@ -127,6 +136,11 @@ if (app) {
     sectionNodes.forEach((sectionNode, sectionIndex) => {
       sectionNode.dataset.active = sectionIndex === index ? 'true' : 'false';
     });
+
+    const current = String(index + 1).padStart(2, '0');
+    const total = String(CHAPTER.sections.length).padStart(2, '0');
+    storyProgressLabel.textContent = `${current} / ${total}`;
+    storyProgressBar.style.setProperty('--story-progress', `${((index + 1) / CHAPTER.sections.length).toFixed(4)}`);
   };
 
   const updateAudioToggle = () => {
