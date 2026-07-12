@@ -1,0 +1,92 @@
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cloud-drift {
+  from {
+    transform: translate3d(-8%, 0, 0) scale(var(--cloud-scale));
+  }
+
+  to {
+    transform: translate3d(10%, 0, 0) scale(var(--cloud-scale));
+  }
+}
+
+@keyframes steam-rise {
+  0% {
+    opacity: 0;
+    transform: translate3d(var(--puff-x), 0, 0) scale(0.65);
+  }
+
+  35% {
+    opacity: 0.78;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(calc(var(--puff-x) * 1.4), -8rem, 0) scale(2.2);
+  }
+}
+
+@keyframes wheel-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes piston-drive {
+  0%,
+  100% {
+    transform: translateX(0) scaleX(1);
+  }
+
+  50% {
+    transform: translateX(0.85rem) scaleX(0.92);
+  }
+}
+
+@keyframes atmosphere-float {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  to {
+    transform: translate3d(2.5rem, -3.2rem, 0) scale(1.06);
+  }
+}
+
+@keyframes snow-drift {
+  from {
+    transform: translate3d(0, -12%, 0);
+  }
+
+  to {
+    transform: translate3d(-3%, 12%, 0);
+  }
+}
+
+@keyframes bird-flight {
+  from {
+    transform: translate3d(-16vw, 0, 0) scale(0.95);
+  }
+
+  to {
+    transform: translate3d(124vw, -1rem, 0) scale(1.05);
+  }
+}
+
+.journey-story {
+  animation: fade-in 700ms ease-out both;
+}
